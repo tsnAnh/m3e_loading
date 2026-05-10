@@ -18,7 +18,15 @@ void main() {
     });
 
     testWidgets('renders all size variants', (tester) async {
-      for (final size in M3ELoadingSize.values) {
+      final sizes = [
+        M3ELoadingIndicator.sizeXS,
+        M3ELoadingIndicator.sizeSM,
+        M3ELoadingIndicator.sizeMD,
+        M3ELoadingIndicator.sizeLG,
+        M3ELoadingIndicator.sizeXL,
+      ];
+
+      for (final size in sizes) {
         await tester.pumpWidget(
           MaterialApp(
             home: Scaffold(
@@ -34,8 +42,8 @@ void main() {
           ).first,
         );
 
-        expect(widget.width, equals(size.value));
-        expect(widget.height, equals(size.value));
+        expect(widget.width, equals(size));
+        expect(widget.height, equals(size));
       }
     });
 
@@ -138,17 +146,13 @@ void main() {
     });
   });
 
-  group('M3ELoadingSize', () {
-    test('has correct pixel values', () {
-      expect(M3ELoadingSize.xs.value, equals(28.0));
-      expect(M3ELoadingSize.sm.value, equals(32.0));
-      expect(M3ELoadingSize.md.value, equals(40.0));
-      expect(M3ELoadingSize.lg.value, equals(48.0));
-      expect(M3ELoadingSize.xl.value, equals(56.0));
-    });
-
-    test('has 5 values', () {
-      expect(M3ELoadingSize.values.length, equals(5));
+  group('Size Constants', () {
+    test('have correct pixel values', () {
+      expect(M3ELoadingIndicator.sizeXS, equals(28.0));
+      expect(M3ELoadingIndicator.sizeSM, equals(32.0));
+      expect(M3ELoadingIndicator.sizeMD, equals(40.0));
+      expect(M3ELoadingIndicator.sizeLG, equals(48.0));
+      expect(M3ELoadingIndicator.sizeXL, equals(56.0));
     });
   });
 }

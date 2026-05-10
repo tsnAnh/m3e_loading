@@ -8,18 +8,6 @@ import 'package:flutter/physics.dart';
 part 'loading_indicator_painter.dart';
 part 'loading_shapes.dart';
 
-/// Size variants for [M3ELoadingIndicator].
-enum M3ELoadingSize {
-  xs(28),
-  sm(32),
-  md(40),
-  lg(48),
-  xl(56);
-
-  const M3ELoadingSize(this.value);
-  final double value;
-}
-
 /// Material 3 Expressive loading indicator with animated morphing shapes.
 ///
 /// This widget displays a smooth morphing animation between different
@@ -27,7 +15,7 @@ enum M3ELoadingSize {
 ///
 /// Example:
 /// ```dart
-/// M3ELoadingIndicator(size: M3ELoadingSize.md)
+/// M3ELoadingIndicator(size: M3ELoadingIndicator.sizeMD)
 /// ```
 ///
 /// The color can be customized via [ProgressIndicatorTheme]:
@@ -40,12 +28,29 @@ enum M3ELoadingSize {
 class M3ELoadingIndicator extends StatefulWidget {
   const M3ELoadingIndicator({
     super.key,
-    this.size = M3ELoadingSize.md,
+    this.size,
     this.color,
+    this.backgroundColor,
   });
 
-  final M3ELoadingSize size;
+  final double? size;
   final Color? color;
+  final Color? backgroundColor;
+
+  /// Extra small size: 28.0 logical pixels
+  static const double sizeXS = 28.0;
+
+  /// Small size: 32.0 logical pixels
+  static const double sizeSM = 32.0;
+
+  /// Medium size: 40.0 logical pixels (default)
+  static const double sizeMD = 40.0;
+
+  /// Large size: 48.0 logical pixels
+  static const double sizeLG = 48.0;
+
+  /// Extra large size: 56.0 logical pixels
+  static const double sizeXL = 56.0;
 
   @override
   State<M3ELoadingIndicator> createState() => _M3ELoadingIndicatorState();
@@ -138,7 +143,7 @@ class _M3ELoadingIndicatorState extends State<M3ELoadingIndicator>
       label: 'Loading',
       child: RepaintBoundary(
         child: SizedBox.square(
-          dimension: widget.size.value,
+          dimension: widget.size ?? M3ELoadingIndicator.sizeMD,
           child: AnimatedBuilder(
             animation: Listenable.merge([
               _globalRotationController,
@@ -164,6 +169,7 @@ class _M3ELoadingIndicatorState extends State<M3ELoadingIndicator>
                   globalRotation: globalRotation,
                   morphRotationTargetAngle: _morphRotationTargetAngle,
                   currentMorphIndex: _currentMorphIndex,
+                  backgroundColor: widget.backgroundColor,
                 ),
               );
             },

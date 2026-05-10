@@ -40,15 +40,15 @@ class DemoPage extends StatelessWidget {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 32),
-              _buildRow('XS (28px)', M3ELoadingSize.xs),
+              _buildRow('XS (28px)', M3ELoadingIndicator.sizeXS),
               const SizedBox(height: 32),
-              _buildRow('SM (32px)', M3ELoadingSize.sm),
+              _buildRow('SM (32px)', M3ELoadingIndicator.sizeSM),
               const SizedBox(height: 32),
-              _buildRow('MD (40px)', M3ELoadingSize.md),
+              _buildRow('MD (40px)', M3ELoadingIndicator.sizeMD),
               const SizedBox(height: 32),
-              _buildRow('LG (48px)', M3ELoadingSize.lg),
+              _buildRow('LG (48px)', M3ELoadingIndicator.sizeLG),
               const SizedBox(height: 32),
-              _buildRow('XL (56px)', M3ELoadingSize.xl),
+              _buildRow('XL (56px)', M3ELoadingIndicator.sizeXL),
               const SizedBox(height: 48),
               const Divider(),
               const SizedBox(height: 48),
@@ -76,7 +76,7 @@ class DemoPage extends StatelessWidget {
     );
   }
 
-  Widget _buildRow(String label, M3ELoadingSize size) {
+  Widget _buildRow(String label, double size) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -95,7 +95,7 @@ class DemoPage extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         M3ELoadingIndicator(
-          size: M3ELoadingSize.md,
+          size: M3ELoadingIndicator.sizeMD,
           color: color,
         ),
         const SizedBox(height: 8),
