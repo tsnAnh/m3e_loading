@@ -1,7 +1,7 @@
 name: m3e_loading
 description: Material 3 Expressive loading indicator with animated morphing shapes.
 version: 0.1.0
-repository: https://github.com/tsnAnh/m3e_loading
+repository: https://github.com/dthuy62/m3e_loading
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
