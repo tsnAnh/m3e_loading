@@ -19,14 +19,14 @@ Add to your `pubspec.yaml`:
 dependencies:
   m3e_loading:
     git:
-      url: https://github.com/dthuy62/m3e_loading.git
+      url: https://github.com/tsnAnh/m3e_loading.git
       ref: main
 ```
 
 Or run:
 
 ```bash
-flutter pub add m3e_loading --git-url=https://github.com/dthuy62/m3e_loading.git
+flutter pub add m3e_loading --git-url=https://github.com/tsnAnh/m3e_loading.git
 ```
 
 ## Usage
